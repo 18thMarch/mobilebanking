@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:mobilebanking/pages/accountrecoverypage.dart';
-import 'package:mobilebanking/pages/uihelper.dart';
+import 'package:EBank/pages/accountrecoverypage.dart';
+import 'package:EBank/pages/uihelper.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

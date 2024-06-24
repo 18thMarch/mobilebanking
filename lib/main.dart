@@ -1,5 +1,5 @@
+import 'package:EBank/pages/loginpage.dart';
 import 'package:flutter/material.dart';
-import 'package:mobilebanking/Pages/loginpage.dart';
 
 void main() {
   runApp(const MyApp());
