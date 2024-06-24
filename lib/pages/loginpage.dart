@@ -18,6 +18,8 @@ class _LoginPageState extends State<LoginPage> {
   login(String phone, String password) {
     if (phone == "" && password == "") {
       UiHelper.customAlertBox(context, "Enter Required Fileds");
+    } else {
+      UiHelper.customAlertBox(context, "Kam baki xw need help ma jau");
     }
   }
 
