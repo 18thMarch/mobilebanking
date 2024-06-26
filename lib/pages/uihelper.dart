@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 
 class UiHelper {
   static customTextField(TextEditingController controller, String text,
-      IconData iconData, bool toHide) {
+      IconData iconData, bool toHide, TextInputType textInputType) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
       child: TextField(
         controller: controller,
         obscureText: toHide,
+        keyboardType: textInputType,
         decoration: InputDecoration(
           hintText: text,
           prefixIcon: Icon(iconData),

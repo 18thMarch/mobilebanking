@@ -26,82 +26,88 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/images/img1.jpg"), fit: BoxFit.cover),
-        ),
-        child: Center(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 40,
-            ),
-            SizedBox(
-              height: 150,
-              child: Image.asset(
-                "assets/icons/logo1.png",
+      resizeToAvoidBottomInset: false,
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Image.asset(
+            "assets/images/img2.jpg",
+            fit: BoxFit.cover,
+          ),
+          Center(
+              child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 10,
               ),
-            ),
-            Text(
-              "NIMB",
-              style: TextStyle(
-                  fontSize: 50,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.purple[700]),
-            ),
-            Text(
-              "NEPAL INVESTMENT MEGA BANK",
-              style: TextStyle(color: Colors.purple[700]),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            UiHelper.customTextField(
-                phoneController, "Mobile Number", Icons.phone_android, false),
-            UiHelper.customTextField(
-                passwordController, "Password", Icons.lock, true),
-            SizedBox(
-              height: 10,
-            ),
-            UiHelper.customButton(() {
-              login(phoneController.text.toString(),
-                  passwordController.text.toString());
-            }, "Login"),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.help_outline,
-                  color: Colors.purple,
+              SizedBox(
+                height: 130,
+                child: Image.asset(
+                  "assets/icons/logo1.png",
                 ),
-                SizedBox(
-                  width: 10,
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => AccountRecoveryPage()));
-                  },
-                  child: Text(
-                    "Need help to connect",
-                    style: TextStyle(
-                        decoration: TextDecoration.underline,
-                        fontSize: 20,
-                        color: Colors.black),
+              ),
+              Text(
+                "NIMB",
+                style: TextStyle(
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.purple[700]),
+              ),
+              Text(
+                "NEPAL INVESTMENT MEGA BANK",
+                style: TextStyle(color: Colors.purple[700]),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              UiHelper.customTextField(phoneController, "Mobile Number",
+                  Icons.phone_android, false, TextInputType.phone),
+              UiHelper.customTextField(passwordController, "Password",
+                  Icons.lock, true, TextInputType.text),
+              SizedBox(
+                height: 20,
+              ),
+              UiHelper.customButton(() {
+                login(phoneController.text.toString(),
+                    passwordController.text.toString());
+              }, "Login"),
+              SizedBox(
+                height: 5,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.help_outline,
+                    color: Colors.purple,
                   ),
-                ),
-              ],
-            )
-          ],
-        )),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AccountRecoveryPage()));
+                    },
+                    child: Text(
+                      "Need help to connect",
+                      style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          fontSize: 20,
+                          color: Colors.black),
+                    ),
+                  ),
+                ],
+              )
+            ],
+          )),
+        ],
       ),
     );
   }
 }
+
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables

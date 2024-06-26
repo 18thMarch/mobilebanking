@@ -1,4 +1,4 @@
-import 'package:EBank/pages/loginpage.dart';
+import 'package:EBank/pages/splashscreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: SplasshScreen(),
     );
   }
 }

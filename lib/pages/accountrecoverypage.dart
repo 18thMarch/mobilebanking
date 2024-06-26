@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AccountRecoveryPage extends StatefulWidget {
@@ -11,10 +12,23 @@ class AccountRecoveryPage extends StatefulWidget {
 }
 
 class _AccountRecoveryPageState extends State<AccountRecoveryPage> {
-  final _uri1 =
+  final Uri _url1 =
       Uri.parse('https://www.facebook.com/ujwal.sayaju?mibextid=ZbWKwL');
-  final _uri2 =
+  final Uri _url2 =
       Uri.parse('https://www.instagram.com/uzzwal_10?igsh=N2xsbm02dWY3NHlh');
+
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(_url1)) {
+      throw Exception('Could not launch $_url1');
+    }
+  }
+
+  Future<void> _launchUrl2() async {
+    if (!await launchUrl(_url2)) {
+      throw Exception('Could not launch $_url2');
+    }
+  }
+
   Color _containerColor = Colors.white;
 
   void _changeColor() {
@@ -27,12 +41,6 @@ class _AccountRecoveryPageState extends State<AccountRecoveryPage> {
     setState(() {
       _containerColor = Colors.white;
     });
-  }
-
-  Future<void> _launchUrl(_url) async {
-    if (await launchUrl(_url)) {
-      throw Exception('Could not launch $_url');
-    }
   }
 
   @override
@@ -168,9 +176,18 @@ class _AccountRecoveryPageState extends State<AccountRecoveryPage> {
                       height: 150,
                       width: double.infinity,
                       child: Image.asset("assets/icons/logo1.png")),
-                  Text(
-                    "For further assistance on recovering your account, please contact us.",
-                    style: TextStyle(fontSize: 16),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "For further assistance on recovering",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      Text(
+                        "your account, please contact us.",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ],
                   ),
                   TextButton(
                     onPressed: () {
@@ -181,7 +198,7 @@ class _AccountRecoveryPageState extends State<AccountRecoveryPage> {
                       children: [
                         Icon(Icons.phone_android),
                         Text(
-                          "+977 9840171036",
+                          "  +977 9840171036",
                           style: TextStyle(fontSize: 16),
                         ),
                       ],
@@ -199,20 +216,21 @@ class _AccountRecoveryPageState extends State<AccountRecoveryPage> {
                       children: [
                         Icon(Icons.mail),
                         Text(
-                          "the18thmarch10@gmail.com",
+                          "  the18thmarch10@gmail.com",
                           style: TextStyle(fontSize: 16),
                         ),
                       ],
                     ),
+                  ),
+                  SizedBox(
+                    height: 10,
                   ),
                   Text(
                     "Connect with us",
                     style: TextStyle(fontSize: 16),
                   ),
                   TextButton(
-                    onPressed: () {
-                      launchUrl(_uri1, mode: LaunchMode.inAppWebView);
-                    },
+                    onPressed: _launchUrl,
                     child: Row(
                       children: [
                         Icon(
@@ -220,24 +238,22 @@ class _AccountRecoveryPageState extends State<AccountRecoveryPage> {
                           color: Colors.blue,
                         ),
                         Text(
-                          "FACEBOOK",
+                          "   FACEBOOK",
                           style: TextStyle(fontSize: 16),
                         ),
                       ],
                     ),
                   ),
                   TextButton(
-                    onPressed: () {
-                      launchUrl(_uri2, mode: LaunchMode.inAppWebView);
-                    },
+                    onPressed: _launchUrl2,
                     child: Row(
                       children: [
                         Icon(
-                          Icons.facebook,
-                          color: Colors.blue,
+                          FontAwesomeIcons.squareInstagram,
+                          color: Colors.pinkAccent,
                         ),
                         Text(
-                          "INSTAGRAM",
+                          "   INSTAGRAM",
                           style: TextStyle(fontSize: 16),
                         ),
                       ],
